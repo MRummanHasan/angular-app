@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { FirstComponent } from './first/first.component';
 import { GOTNameComponent } from './gotname/gotname.component';
 import { from } from 'rxjs';
+import { DirectiveExampleComponent } from './directive-example/directive-example.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstComponent,
-    GOTNameComponent
+    GOTNameComponent,
+    DirectiveExampleComponent
   ],
   imports: [
     BrowserModule,
