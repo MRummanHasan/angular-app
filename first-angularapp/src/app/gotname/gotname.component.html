@@ -1,4 +1,5 @@
 <p>GOTName works!</p>
+<img src="{{imageUrlChild}}" alt="">
 <ul class="list-group">
     <li class="list-group-item">{{GOTName[0]}}</li>
     <li class="list-group-item">{{GOTName[1]}}</li>
@@ -6,4 +7,8 @@
     <li class="list-group-item">{{GOTName[3]}}</li>
 </ul>
 <button type="button" class="btn btn-primary" (click)="switchFruitAndVegetableName()" name="button">Switch Name</button>
-<button type="button" class="btn btn-danger" (click)="stopFruitAndVegetableName()" name="button">Switch Name</button>
+<button type="button" class="btn btn-danger" [disabled]='stopSwitchStatus' (click)="stopFruitAndVegetableName()" name="button"> Stop</button>
+<div class="">
+<input type="text" [(ngModel)]="twoWayData" [value]="twoWayData" name="" value="">
+{{twoWayData}}
+</div>

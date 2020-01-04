@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 @Component({
@@ -13,9 +13,18 @@ export class GOTNameComponent implements OnInit {
   GOTVegetableName:string[]=['broccoli','tomato','pumpkin','beetroot'];
   i=0;
   stopSwtich:any;
+  stopSwitchStatus=true;
+  twoWayData='Tyrion';
+
+  @Input() imageUrlChild:string;
+  
+
+  stopFruitAndVegetableName(){
+    clearInterval(this.stopSwtich);
+  }
 
   switchFruitAndVegetableName(){
-    setInterval(()=>{
+    this.stopSwtich=setInterval(()=>{
       if (this.i%2==0) {
         this.GOTName = this.GOTFruitName;
         console.log('if');
@@ -27,17 +36,17 @@ export class GOTNameComponent implements OnInit {
       }
       this.i++;
     },2000);
-    
+    this.stopSwitchStatus=false;
   }
-  stopFruitAndVegetableName(){
-    setInterval(this.stopSwtich);
-  }
+
+
 
   constructor() { 
     this.GOTName = this.GOTFruitName;
   }
 
   ngOnInit() {
+    console.log(this.imageUrlChild);
   }
 
 }
