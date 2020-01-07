@@ -8,13 +8,15 @@ import { FirstComponent } from './first/first.component';
 import { GOTNameComponent } from './gotname/gotname.component';
 import { from } from 'rxjs';
 import { DirectiveExampleComponent } from './directive-example/directive-example.component';
+import { AppBoldDirective } from './app-bold.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstComponent,
     GOTNameComponent,
-    DirectiveExampleComponent
+    DirectiveExampleComponent,
+    AppBoldDirective
   ],
   imports: [
     BrowserModule,
