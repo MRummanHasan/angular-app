@@ -6,7 +6,7 @@
     </div>
 </div>
 
-<div [ngSwitch]="selectedHero">
+<div [ngSwitch]="selectedHero" [ngStyle]="myStyle" >
     <div *ngSwitchCase="dcHeroes[0]">Bruce Wayne</div>
     <div *ngSwitchCase="'Superman'">Clarke Kent</div>
     <div *ngSwitchCase="'Wonder Woman'">Princess Diana</div>
@@ -14,3 +14,8 @@
 
     <div *ngSwitchDefault>None Hero selected</div>
 </div>
+
+<button type="button" (click)="setStyle()" name="button">change style</button>
+
+<h2 [ngClass]="currentCSSClass">ngClass - Change CSS class dynamically</h2>
+<button type="button" (click)='setCSSClass()' name="button">change css class</button>
