@@ -1,15 +1,78 @@
-<p>template-driven works!</p>
-<form>
-    <div class="">
-        <label for="">
-            Name:
-        </label>
-        <input type="text" name="">
+<div class="container">
+    <div class="jumbotron">
+        <p>template-driven works!</p>
+
+        <form #frm="ngForm" (ngSubmit)="addUser(frm)">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" name="name"
+                ngModel
+                #nameUser="ngModel" 
+                required
+                pattern="[a-zA-Z][a-zA-Z]+"
+                >
+            </div>
+            <div *ngIf="nameUser.touched" class="alert alert-danger">
+                <div *ngIf="nameUser.errors?.required">
+                    Name Required
+                </div>
+                <div *ngIf="nameUser.errors?.pattern">
+                    Invalid Name
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="contact">Contact:</label>
+                <input type="text" class="form-control" name="contact" 
+                ngModel
+                #contactUser="ngModel" 
+                required
+                maxlength="10"
+                minlength="10"
+                pattern="[0-9]*"
+                >
+            </div>
+            <div *ngIf="contactUser.touched" class="alert alert-danger">
+                <div *ngIf="contactUser.errors?.required">
+                    contact Required
+                </div>
+                <div [hidden]="!contactUser.hasError('minlength')">
+                    Invalid contact
+                </div>
+            </div>
+
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" name="email" 
+                ngModel
+                #emailUser="ngModel"
+                required
+                pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                >
+            </div>
+            <div *ngIf="emailUser.touched" class="alert alert-danger">
+                <div *ngIf="emailUser.errors?.required">
+                    email Required
+                </div>
+                <div *ngIf="emailUser.errors?.pattern">
+                    Invalid emailUser
+                </div>
+            </div>
+            
+            <button type="submit" name="button" class="btn btn-success" [disabled]="frm.invalid">Add User</button>
+        </form>
+
     </div>
-    <div class="">
-        <label for="">
-            Contact:
-        </label>
-        <input type="text" name="">
-    </div>
-</form>
+</div>
+<hr>
+
+<ul class="list-group">
+    <li *ngFor="let user of userList" class="list-group-item">
+        {{user?.name}}
+    </li>
+</ul>
+
+
+{{frm.value | json}}
