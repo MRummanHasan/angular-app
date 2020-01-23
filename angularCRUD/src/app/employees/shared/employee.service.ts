@@ -5,6 +5,13 @@ import {Employee} from './employee.model'
 })
 export class EmployeeService {
 
-  selectedEmployee : Employee;
+  selectedEmployee : Employee ={
+    EmployeeID : null,
+    FirstName:'',
+    LastName:'',
+    EmpCode:'',
+    Position:'',
+    Office:''
+  };
   constructor() { }
 }
