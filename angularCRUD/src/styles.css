@@ -4,7 +4,7 @@ form.emp-form{
     border-radius: 4px;
     padding: 10px;
 }
-div.validatio-error{
+div.validation-error{
     color:red;
     text-align: center;
 }
